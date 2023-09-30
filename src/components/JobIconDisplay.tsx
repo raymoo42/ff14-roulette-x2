@@ -20,7 +20,7 @@ import Warrior from "./jobIcons/Warrior";
 import Whitemage from "./jobIcons/Whitemage";
 
 export default function JobIconDisplay(props: {job: string}) {
-  const classToIconMap = {
+  const classToIconMap: any = {
     'sage': Sage,
     'reaper': Reaper,
     'dancer': Dancer,
@@ -42,11 +42,15 @@ export default function JobIconDisplay(props: {job: string}) {
     'whitemage': Whitemage,
   };
 
-  const MyComponent = classToIconMap[props.job] ?? Dummy;
+  const MyComponent = get();
 
   return (
     <>
       <MyComponent />
     </>
   )
+
+  function get() {
+    return classToIconMap[props.job] ?? Dummy;
+  }
 }

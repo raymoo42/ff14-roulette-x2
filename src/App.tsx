@@ -13,7 +13,7 @@ function App() {
         </div>
         <footer>
           <div>
-            <p className="mx-auto my-12 text-zinc-100">Made with {"<3"} by me and stuff</p>
+            <p className="mx-auto my-12 text-zinc-100">Made with {"<3"} by Chi and Cirno</p>
           </div>
         </footer>
       </div>

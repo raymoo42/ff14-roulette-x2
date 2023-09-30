@@ -5,17 +5,28 @@ import HealerList from "../util/HealerList";
 import DpsList from "../util/DpsList";
 
 export default function RandomContainer() {
+  const [intervalConst, setIntervalConst] = useState(-1);
   const [jobs, setJobs] = useState(['paladin','whitemage','monk','bard']);
   
   const randomize = () => {
-    const tank = getRandom(TankList);
-    const healer = getRandom(HealerList);
-    const dps1 = getRandom(DpsList);
-    const dps2 = getRandom(DpsList);
+    if (intervalConst !== -1) {
+      clearInterval(intervalConst);
+      setIntervalConst(-1);
+    } else {
+      const a = setInterval(() => {
+        const tank = getRandom(TankList);
+        const healer = getRandom(HealerList);
+        const dps1 = getRandom(DpsList);
+        const dps2 = getRandom(DpsList);
+  
+        setJobs([tank, healer, dps1, dps2]);
+      }, 5);
+      setIntervalConst(a);
+    }
 
-    setJobs([tank, healer, dps1, dps2]);
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const getRandom = (list: Array<any>) => {
     return list[Math.floor(Math.random() * list.length)];
   };
@@ -46,9 +57,9 @@ export default function RandomContainer() {
         </div>
         )}
 
-      <button
-      onClick={randomize} 
-      className="my-8 bg-zinc-800 text-green-200 p-2 rounded-lg col-start-2 col-end-4">Randomize</button>
+      <button onClick={randomize} className="my-8 bg-zinc-800 text-green-200 p-2 rounded-lg col-start-2 col-end-4">
+         {intervalConst !== null ? 'Click to stop' : 'Randomize'}
+        </button>
     </div>
   )
 }

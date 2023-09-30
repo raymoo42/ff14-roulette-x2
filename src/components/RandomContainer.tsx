@@ -20,7 +20,7 @@ export default function RandomContainer() {
         const dps2 = getRandom(DpsList);
   
         setJobs([tank, healer, dps1, dps2]);
-      }, 5);
+      }, 24);
       setIntervalConst(a);
     }
 
@@ -33,18 +33,18 @@ export default function RandomContainer() {
 
   const getColor = (job: string) => {
     if (TankList.includes(job)) {
-      return 'sky';
+      return 'text-sky-400';
     }
 
     if (HealerList.includes(job)) {
-      return 'green';
+      return 'text-green-400';
     }
 
     if (DpsList.includes(job)) {
-      return 'red';
+      return 'text-red-400';
     }
 
-    return 'stone';
+    return 'text-slate-400';
   };
 
   return (
@@ -52,7 +52,7 @@ export default function RandomContainer() {
 
       {jobs.map((job, idx) => 
         <div key={idx} className="text-center bg-zinc-900 rounded-xl py-6">
-          <span className={`text-${getColor(job)}-400`} >{ job }</span>
+          <span className={getColor(job)} >{ job }</span>
           <JobIconDisplay job={job}/>
         </div>
         )}

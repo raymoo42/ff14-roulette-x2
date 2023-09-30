@@ -58,7 +58,7 @@ export default function RandomContainer() {
         )}
 
       <button onClick={randomize} className="my-8 bg-zinc-800 text-green-200 p-2 rounded-lg col-start-2 col-end-4">
-         {intervalConst !== null ? 'Click to stop' : 'Randomize'}
+         {intervalConst !== -1 ? 'Click to stop' : 'Randomize'}
         </button>
     </div>
   )

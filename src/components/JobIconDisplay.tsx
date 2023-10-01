@@ -20,6 +20,7 @@ import Warrior from './jobIcons/Warrior';
 import Whitemage from './jobIcons/Whitemage';
 
 export default function JobIconDisplay(props: { job: string }) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const classToIconMap: any = {
     sage: Sage,
     reaper: Reaper,

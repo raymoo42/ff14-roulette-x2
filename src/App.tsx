@@ -1,22 +1,45 @@
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import RandomContainer from './components/RandomContainer';
+import RandomJob from './components/RandomJob';
 
 function App() {
   return (
-    <div className="mx-0 my-0 h-screen bg-slate-700">
-      <div className="flex flex-col sm:mx-32 lg:mx-64">
-        <div className="mx-auto my-16">
-          <h1 className="text-4xl text-zinc-100 font-['player']">Random Party Decider</h1>
-        </div>
-        <div className="flex-grow">
-          <RandomContainer></RandomContainer>
-        </div>
-        <footer>
-          <div>
-            <p className="mx-auto my-12 text-zinc-100">Made with {'<3'} by Chi and Cirno</p>
+    <BrowserRouter basename="/ff14-roulette-x2/">
+      <div className="mx-0 my-0 h-full min-h-screen bg-slate-700">
+        <div className="flex flex-col sm:mx-16 lg:mx-64">
+          <div className="mx-auto mt-8 my-4">
+            <h1 className="text-4xl text-zinc-100 font-['player']">Random Party Decider</h1>
           </div>
-        </footer>
+          <nav className="bg-zinc-600 my-8 -mx-32">
+            <ul className="flex flex-row place-content-center place-items-center">
+              <li>
+                <Link
+                  className="px-16 py-4 bg-yellow-200  hover:bg-stone-400 my-4 mx-16 cursor-pointer"
+                  to={`/`}>
+                  Party Maker
+                </Link>
+              </li>
+              <li>
+                <Link className="px-16 py-4" to={`/single`}>
+                  Single Job Chooser
+                </Link>
+              </li>
+            </ul>
+          </nav>
+          <div className="flex-grow">
+            <Routes>
+              <Route path="/" element={<RandomContainer />}></Route>
+              <Route path="/single" element={<RandomJob />}></Route>
+            </Routes>
+          </div>
+          <footer>
+            <div>
+              <p className="mx-auto my-12 text-zinc-100">Made with {'<3'} by Chi and Cirno</p>
+            </div>
+          </footer>
+        </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 

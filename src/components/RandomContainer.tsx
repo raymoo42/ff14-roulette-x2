@@ -1,13 +1,13 @@
-import { useState } from "react";
-import JobIconDisplay from "./JobIconDisplay";
-import TankList from "../util/TankList";
-import HealerList from "../util/HealerList";
-import DpsList from "../util/DpsList";
+import { useState } from 'react';
+import DpsList from '../util/DpsList';
+import HealerList from '../util/HealerList';
+import TankList from '../util/TankList';
+import JobIconDisplay from './JobIconDisplay';
 
 export default function RandomContainer() {
   const [intervalConst, setIntervalConst] = useState(-1);
-  const [jobs, setJobs] = useState(['paladin','whitemage','monk','bard']);
-  
+  const [jobs, setJobs] = useState(['paladin', 'whitemage', 'monk', 'bard']);
+
   const randomize = () => {
     if (intervalConst !== -1) {
       clearInterval(intervalConst);
@@ -18,12 +18,11 @@ export default function RandomContainer() {
         const healer = getRandom(HealerList);
         const dps1 = getRandom(DpsList);
         const dps2 = getRandom(DpsList);
-  
+
         setJobs([tank, healer, dps1, dps2]);
       }, 24);
       setIntervalConst(a);
     }
-
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -49,17 +48,18 @@ export default function RandomContainer() {
 
   return (
     <div className="grid grid-cols-4 gap-2">
-
-      {jobs.map((job, idx) => 
+      {jobs.map((job, idx) => (
         <div key={idx} className="text-center bg-zinc-900 rounded-xl py-6">
-          <span className={getColor(job)} >{ job }</span>
-          <JobIconDisplay job={job}/>
+          <span className={getColor(job)}>{job}</span>
+          <JobIconDisplay job={job} />
         </div>
-        )}
+      ))}
 
-      <button onClick={randomize} className="my-8 bg-zinc-800 text-green-200 p-2 rounded-lg col-start-2 col-end-4">
-         {intervalConst !== -1 ? 'Click to stop' : 'Randomize'}
-        </button>
+      <button
+        onClick={randomize}
+        className="my-8 bg-zinc-800 text-green-200 p-2 rounded-lg col-start-2 col-end-4">
+        {intervalConst !== -1 ? 'Click to stop' : 'Randomize'}
+      </button>
     </div>
-  )
+  );
 }

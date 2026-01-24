@@ -5,6 +5,7 @@ import TankList from '../util/TankList';
 import JobIconDisplay from './JobIconDisplay';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { getRandomJobFn, getRoleColor } from '../util/JobFunctions';
 
 export default function RandomContainer() {
   const [intervalConst, setIntervalConst] = useState(-1);
@@ -65,29 +66,4 @@ export default function RandomContainer() {
       </button>
     </div>
   );
-}
-
-export function getRandomJobFn() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return (list: Array<any>) => {
-    return list[Math.floor(Math.random() * list.length)];
-  };
-}
-
-export function getRoleColor() {
-  return (job: string) => {
-    if (TankList.includes(job)) {
-      return 'text-sky-400';
-    }
-
-    if (HealerList.includes(job)) {
-      return 'text-green-400';
-    }
-
-    if (DpsList.includes(job)) {
-      return 'text-red-400';
-    }
-
-    return 'text-slate-400';
-  };
 }

@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import RandomContainer from './components/RandomContainer';
 import RandomJob from './components/RandomJob';
 
@@ -13,16 +13,16 @@ function App() {
           <nav className="bg-zinc-600 my-8 -mx-32">
             <ul className="flex flex-row place-content-center place-items-center">
               <li>
-                <Link
-                  className="px-16 py-4 bg-yellow-200  hover:bg-stone-400 my-4 mx-16 cursor-pointer"
+                <NavLink
+                  className="px-16 py-4 hover:bg-stone-400 my-4 mx-16 cursor-pointer"
                   to={`/`}>
                   Party Maker
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link className="px-16 py-4" to={`/single`}>
+                <NavLink className="px-16 py-4 hover:bg-stone-400 my-4 mx-16 cursor-pointer" to={`/single`}>
                   Single Job Chooser
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </nav>

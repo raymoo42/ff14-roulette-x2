@@ -1,15 +1,15 @@
 import DpsList from '../util/DpsList';
 import HealerList from '../util/HealerList';
+import { getRandomJobFn, getRoleColor } from '../util/JobFunctions';
 import TankList from '../util/TankList';
 import JobIconDisplay from './JobIconDisplay';
-import { getRandomJobFn, getRoleColor } from './RandomContainer';
 import { useState } from 'react';
 
 export default function RandomJob() {
   const jobFn = getRandomJobFn();
   const colorFn = getRoleColor();
 
-  const [job, setJob] = useState(jobFn(TankList.concat(HealerList.concat(DpsList))));
+  const [job, setJob] = useState(() => jobFn(TankList.concat(HealerList.concat(DpsList))));
 
   const selectAnyJob = () => {
     setJob(jobFn(TankList.concat(HealerList.concat(DpsList))));

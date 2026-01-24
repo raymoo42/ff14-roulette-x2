@@ -46,8 +46,8 @@ export default function RandomContainer() {
 
   return (
     <div className="grid grid-cols-4 gap-2">
-      {jobs.map((job, idx) => (
-        <div key={idx} className="text-center bg-zinc-900 rounded-xl py-6">
+      {jobs.map((job, index) => (
+        <div key={`${index}-${job}}`} className="text-center bg-zinc-900 rounded-xl py-6">
           <span className={getColor(job)}>{job}</span>
           <JobIconDisplay job={job} />
         </div>

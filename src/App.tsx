@@ -14,13 +14,15 @@ function App() {
             <ul className="flex flex-row place-content-center place-items-center">
               <li>
                 <NavLink
-                  className="px-16 py-4 hover:bg-stone-400 my-4 mx-16 cursor-pointer"
+                  className="px-16 py-4 bg-zinc-400 hover:bg-stone-400 my-4 mx-16 cursor-pointer"
                   to={`/`}>
                   Party Maker
                 </NavLink>
               </li>
               <li>
-                <NavLink className="px-16 py-4 hover:bg-stone-400 my-4 mx-16 cursor-pointer" to={`/single`}>
+                <NavLink
+                  className="px-16 py-4 bg-zinc-400 hover:bg-stone-400 my-4 mx-16 cursor-pointer"
+                  to={`/single`}>
                   Single Job Chooser
                 </NavLink>
               </li>
